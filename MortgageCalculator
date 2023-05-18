@@ -1,0 +1,25 @@
+//Mortgage Calculator in Java
+import java.text.NumberFormat;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        final byte months_in_year=12;
+        final byte percent=100;
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Principle: ");
+        int principle= scanner.nextInt();
+        System.out.println("Annual Interest Rate: ");
+        float AnnualInterest= scanner.nextFloat();
+        float MonthlyInterest= AnnualInterest/percent/months_in_year;
+        System.out.println("Period(years): ");
+        byte years= scanner.nextByte();
+        int num_payments= years*months_in_year;
+
+        double mortgage= principle
+                *(MonthlyInterest* Math.pow(1+MonthlyInterest,num_payments))
+                /(Math.pow(1+MonthlyInterest,num_payments)-1);
+
+        String mortgageFormatted= NumberFormat.getCurrencyInstance().format(mortgage);
+        System.out.println("Mortgage: "+mortgageFormatted);
+    }
+}
