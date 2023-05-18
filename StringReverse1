@@ -1,0 +1,23 @@
+//StringReverse
+
+import java.text.NumberFormat;
+import java.util.Scanner;
+
+class ReverseString {
+    public static void main(String[] args) {
+        ReverseString rev = new ReverseString();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+        System.out.println("Reverse of string is: " + rev.reverse(str));
+    }
+    static String reverse(String s)
+        {
+            String rev="";
+            for(int j=s.length();j>0;--j)
+            {
+                rev=rev+(s.charAt(j-1));
+            }
+            return rev;
+        }
+    }
